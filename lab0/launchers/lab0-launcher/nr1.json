@@ -1,0 +1,7 @@
+{
+  "schemaType": "LAUNCHER",
+  "id": "lab0-launcher-id",
+  "description": "",
+  "displayName": "Lab 0 Launcher",
+  "rootNerdletId": "lab0-nerdlet-id"
+}
