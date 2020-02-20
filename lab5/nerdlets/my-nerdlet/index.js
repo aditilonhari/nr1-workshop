@@ -16,14 +16,13 @@ import {
 export default class MyNerdlet extends React.Component {
   constructor(props) {
     super(props);
-    // console.debug(props); //eslint-disable-line
+    console.debug(props); //eslint-disable-line
     this.state = {
-      entityName: "Portal"
+      entityName: "Women"
     };
   }
 
   _renderTable(data) {
-    console.debug("From _renderTable");
     console.debug(JSON.stringify(data));
     const headings = Object.keys(data[0]).filter(
       k => k != "__typename" && k != "id" && k != "tags" && k != "reporting"
@@ -68,8 +67,7 @@ export default class MyNerdlet extends React.Component {
         <StackItem className="container">
           <NerdGraphQuery query={`{actor {accounts {id name}}}`}>
             {({ loading, error, data }) => {
-              console.debug("From Accounts");
-              //   console.debug([loading, data, error]); //eslint-disable-line
+              console.debug([loading, data, error]); //eslint-disable-line
               if (loading) {
                 return <Spinner />;
               }
@@ -92,8 +90,6 @@ export default class MyNerdlet extends React.Component {
               return (
                 <EntityByGuidQuery entityGuid={nerdletUrlState.entityGuid}>
                   {({ loading, error, data }) => {
-                    console.debug("From Entity by ID");
-                    console.debug(nerdletUrlState);
                     console.debug([loading, data, error]); //eslint-disable-line
                     if (loading) {
                       return <Spinner />;
@@ -119,8 +115,7 @@ export default class MyNerdlet extends React.Component {
             entityType="APPLICATION"
           >
             {({ loading, error, data }) => {
-              console.debug("From Entity by Domain Type");
-              //   console.debug([loading, data, error]); //eslint-disable-line
+              console.debug([loading, data, error]); //eslint-disable-line
               if (loading) {
                 return <Spinner />;
               }
@@ -139,8 +134,7 @@ export default class MyNerdlet extends React.Component {
         <StackItem className="container">
           <EntitiesByNameQuery name={this.state.entityName}>
             {({ loading, error, data }) => {
-              console.debug("From Entity by Name");
-              //   console.debug([loading, data, error]); //eslint-disable-line
+              console.debug([loading, data, error]); //eslint-disable-line
               if (loading) {
                 return <Spinner />;
               }
@@ -159,8 +153,7 @@ export default class MyNerdlet extends React.Component {
         <StackItem className="container">
           <EntityCountQuery>
             {({ loading, error, data }) => {
-              console.debug("From Entity Count");
-              //   console.debug([loading, data, error]); //eslint-disable-line
+              console.debug([loading, data, error]); //eslint-disable-line
               if (loading) {
                 return <Spinner />;
               }
